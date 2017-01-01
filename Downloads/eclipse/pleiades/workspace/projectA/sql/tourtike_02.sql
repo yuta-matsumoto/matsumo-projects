@@ -1,5 +1,6 @@
 drop database if exists tourticket;
 
+
 create database if not exists tourticket;
 use tourticket
 
