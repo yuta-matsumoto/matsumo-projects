@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="jp.co.internous.tourtike.action" extends="struts-default">
+
+		<action name="GetGoodsList"
+			class="jp.co.internous.tourtike.action.GetGoodsListAction" method="execute">
+			<result name="success">/GoodsList.jsp</result>
+			<result name="error">/GoodsList.jsp</result>
+		</action>
+
+		<action name="CartAddAction" class="jp.co.internous.tourtike.action.CartAddAction"
+			method="execute">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="token">
+				<param name="excludeMethods"></param>
+			</interceptor-ref>
+			<result name="invalid.token">AntiCSRF.jsp</result>
+			<result name="success">/index.jsp</result>
+			<result name="error">/index.jsp</result>
+			<result name="nonstock">/index.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
+
+		<action name="GoToCartAction" class="jp.co.internous.tourtike.action.GoToCartAction"
+			method="execute">
+			<result name="success">/CartList.jsp</result>
+			<result name="error">/index.jsp</result>
+		</action>
+
+		<action name="GoToLoginAction" class="jp.co.internous.tourtike.action.GoToLoginAction"
+			method="execute">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="token">
+				<param name="excludeMethods"></param>
+			</interceptor-ref>
+			<result name="invalid.token">AntiCSRF.jsp</result>
+			<result name="success">/Login.jsp</result>
+			<result name="error">/CartList.jsp</result>
+			<result name="GoPayOff">/PayOff.jsp</result>
+		</action>
+
+		<action name="GoToPayOffAction" class="jp.co.internous.tourtike.action.GoToPayOffAction"
+			method="execute">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="token">
+				<param name="excludeMethods"></param>
+			</interceptor-ref>
+			<result name="invalid.token">AntiCSRF.jsp</result>
+			<result name="success">/PayOff.jsp</result>
+			<result name="error">/Complete.jsp</result>
+		</action>
+
+		<action name="PayOffAction" class="jp.co.internous.tourtike.action.PayOffAction"
+			method="execute">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="token">
+				<param name="excludeMethods"></param>
+			</interceptor-ref>
+			<result name="invalid.token">AntiCSRF.jsp</result>
+			<result name="success">/ThankYou.jsp</result>
+			<result name="error">/PayOff.jsp</result>
+		</action>
+
+		<action name="LoginAction" class="jp.co.internous.tourtike.action.LoginAction"
+			method="execute">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="token">
+				<param name="excludeMethods"></param>
+			</interceptor-ref>
+			<result name="invalid.token">AntiCSRF.jsp</result>
+			<result name="success">/PayOff.jsp</result>
+			<result name="notmatch">/Login.jsp</result>
+			<result name="error">/AntiCSRF.jsp</result>
+			<result name="input">/Login.jsp</result>
+		</action>
+
+		<action name="DeleteCartAction" class="jp.co.internous.tourtike.action.DeleteCartAction"
+			method="execute">
+			<result name="success">/CartList.jsp</result>
+			<result name="error">/CartList.jsp</result>
+		</action>
+
+		<action name="NewUserAction" class="jp.co.internous.tourtike.action.NewUserAction"
+			method="execute">
+			<result name="success">/Complete.jsp</result>
+			<result name="error">/NewUser.jsp</result>
+			<result name="input">/NewUser.jsp</result>
+		</action>
+
+		<action name="LogOutAction" class="jp.co.internous.tourtike.action.LogOutAction"
+			method="execute">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="token">
+				<param name="excludeMethods"></param>
+			</interceptor-ref>
+			<result name="invalid.token">AntiCSRF.jsp</result>
+			<result name="success">/ThankYou.jsp</result>
+			<result name="gotop">/index.jsp</result>
+		</action>
+
+		<action name="LogOutAction2" class="jp.co.internous.tourtike.action.LogOutAction2"
+			method="execute">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="token">
+				<param name="excludeMethods"></param>
+			</interceptor-ref>
+			<result name="invalid.token">AntiCSRF.jsp</result>
+			<result name="success">/index.jsp</result>
+			<result name="gotop">/index.jsp</result>
+		</action>
+
+		<action name="ReturnTopAction" class="jp.co.internous.tourtike.action.ReturnTopAction"
+			method="execute">
+			<result name="success">/index.jsp</result>
+			<result name="gotop">/index.jsp</result>
+		</action>
+
+		<action name="ReturnTopDeleteCartAction"
+			class="jp.co.internous.tourtike.action.ReturnTopDeleteCartAction"
+			method="execute">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="token">
+				<param name="excludeMethods"></param>
+			</interceptor-ref>
+			<result name="invalid.token">AntiCSRF.jsp</result>
+			<result name="success">/index.jsp</result>
+			<result name="gotop">/index.jsp</result>
+		</action>
+
+		<action name="GoToCreateAction" class="jp.co.internous.tourtike.action.GoToCreateAction"
+			method="execute">
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="token">
+				<param name="excludeMethods"></param>
+			</interceptor-ref>
+			<result name="invalid.token">AntiCSRF.jsp</result>
+			<result name="success">/NewUser.jsp</result>
+			<result name="error">/Login.jsp</result>
+		</action>
+
+		<action name="AntiCsrfAction" class="jp.co.internous.tourtike.action.AntiCsrfAction"
+			method="execute">
+			<result name="success">/GoodsList.jsp</result>
+			<result name="error">/GoodsList.jsp</result>
+		</action>
+
+	</package>
+</struts>

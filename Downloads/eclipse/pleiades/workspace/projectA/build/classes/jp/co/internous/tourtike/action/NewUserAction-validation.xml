@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+
+	<!-- 未入力チェック -->
+
+	<field name="last_name">
+		<field-validator type="requiredstring">
+			<message>苗字を入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="first_name">
+		<field-validator type="requiredstring">
+			<message>名前を入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="postal1">
+		<field-validator type="requiredstring">
+			<message>郵便番号上3桁を入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="postal2">
+		<field-validator type="requiredstring">
+			<message>郵便番号下4桁を入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="addr1">
+		<field-validator type="requiredstring">
+			<message>都道府県を入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="addr2">
+		<field-validator type="requiredstring">
+			<message>市区町村を入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="addr3">
+		<field-validator type="requiredstring">
+			<message>番地を入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="user_mail">
+		<field-validator type="requiredstring">
+			<message>メールアドレスを入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="gender">
+		<field-validator type="requiredstring">
+			<message>性別を選択してください</message>
+		</field-validator>
+	</field>
+
+	<field name="start_year">
+		<field-validator type="requiredstring">
+			<message>生まれた年を選択してください</message>
+		</field-validator>
+	</field>
+
+	<field name="start_month">
+		<field-validator type="requiredstring">
+			<message>生まれた月を選択してください</message>
+		</field-validator>
+	</field>
+
+	<field name="start_day">
+		<field-validator type="requiredstring">
+			<message>生まれた日を選択してください</message>
+		</field-validator>
+	</field>
+
+	<field name="user_id">
+		<field-validator type="requiredstring">
+			<message>ログインIDを入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="user_pass">
+		<field-validator type="requiredstring">
+			<message>パスワードを入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="user_pass2">
+		<field-validator type="requiredstring">
+			<message>確認用パスワードを入力してください</message>
+		</field-validator>
+	</field>
+
+	<!-- ネームチェック -->
+
+	<field name="last_name">
+		<field-validator type="regex">
+			<param name="regex">^[ぁ-んァ-ヶ亜-黑一-十a-zA-Zａ-ｚＡ-Ｚー]+</param>
+			<message>苗字に半角カナ、数字、記号、空白スペースは使用できません</message>
+		</field-validator>
+	</field>
+
+	<field name="last_name">
+		<field-validator type="stringlength">
+			<param name="maxLength">16</param>
+			<message>※苗字は16字以内で入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="first_name">
+		<field-validator type="regex">
+			<param name="regex">^[ぁ-んァ-ヶ亜-黑一-十a-zA-Zａ-ｚＡ-Ｚー]+</param>
+			<message>名前に半角カナ、数字、記号、空白スペースは使用できません</message>
+		</field-validator>
+	</field>
+
+	<field name="first_name">
+		<field-validator type="stringlength">
+			<param name="maxLength">16</param>
+			<message>※名前は16字以内で入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="postal1">
+		<field-validator type="regex">
+			<param name="regex">^[0-9]+</param>
+			<message>郵便番号上3桁は半角数字のみ使用できます</message>
+		</field-validator>
+	</field>
+
+	<field name="postal1">
+		<field-validator type="stringlength">
+			<param name="maxLength">3</param>
+			<message>※郵便番号上3桁は3字以内で入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="postal2">
+		<field-validator type="regex">
+			<param name="regex">^[0-9]+</param>
+			<message>郵便番号下4桁は半角数字のみ利用できます</message>
+		</field-validator>
+	</field>
+
+	<field name="postal2">
+		<field-validator type="stringlength">
+			<param name="maxLength">4</param>
+			<message>※郵便番号下4桁は4字以内で入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="addr3">
+		<field-validator type="regex">
+			<param name="regex">^[ぁ-んァ-ヶ亜-黑一-十0-9a-zA-Zａ-ｚＡ-Ｚ０-９ー-]+</param>
+			<message>住所を正しく入力してください、記号と空白(スペース)は使用できません</message>
+		</field-validator>
+	</field>
+
+	<field name="addr3">
+		<field-validator type="stringlength">
+			<param name="maxLength">27</param>
+			<message>※住所は27字以内で入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="user_mail">
+		<field-validator type="email">
+			<message>有効なメールアドレスを入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="user_id">
+		<field-validator type="regex">
+			<param name="regex">^[0-9a-z]+</param>
+			<message>ログインIDは小文字半角英数字で入力してください</message>
+		</field-validator>
+	</field>
+
+	<field name="user_id">
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">8</param>
+			<message>ログインIDは4文字以上8文字以内で入力してください</message>
+		</field-validator>
+	</field>
+
+
+	<field name="user_pass">
+		<field-validator type="regex">
+			<param name="regex">^[0-9a-z]+</param>
+			<message>パスワードは小文字半角英数字で入力してください</message>
+		</field-validator>
+	</field>
+
+
+
+	<field name="user_pass">
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">16</param>
+			<message>※パスワードは4文字以上16字以内で入力してください</message>
+		</field-validator>
+	</field>
+
+</validators>
